@@ -1,0 +1,30 @@
+import java.util.Scanner;
+public class nth_factor
+{
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        try {
+            System.out.print("Enter the Number: ");
+            int n = input.nextInt();
+            System.out.print("N = ");
+            int N = input.nextInt();
+            int[] x = new int[100];
+            int k = 1;
+            if (N <= 0 || n <= 0)
+                throw new Exception();
+            for (int i = 1; i <= n; i++) {
+                if (n % i == 0) {
+                    x[k] = i;
+                    k++;
+                }
+            }
+            System.out.print("Number of factors = " + (k - 1));
+            System.out.print("\n" + N + " factor of " + n + " = " + x[N]);
+        }
+        catch (Exception e)
+        {
+            System.out.print("Enter the positive integers");
+        }
+    }
+}
