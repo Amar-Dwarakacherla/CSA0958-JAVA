@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Composite_number
+{
+    public static void main(String args[]) {
+        Scanner input = new Scanner(System.in);
+        int a,b,i,j,com;
+        try
+        {
+            System.out.print("Enter the value a: ");
+            a = input.nextInt();
+            System.out.print("Enter the value a: ");
+            b = input.nextInt();
+            for (i = a + 1; i <= b; i++) {
+                com = 0;
+                for (j = 1; j <= b; j++) {
+                    if (i % j == 0)
+                        com++;
+                }
+                if (i > 0) {
+                    if (com > 2)
+                        System.out.print(i + " ");
+                }
+            }
+            if(a>b)
+            {
+                throw new Exception();
+            }
+
+        }
+        catch (Exception e)
+        {
+            System.out.print("Composite numbers does not exist for negative numbers");
+            System.out.print("\nFirst input is higher than second input");
+        }
+    }
+}
