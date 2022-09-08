@@ -3,25 +3,33 @@ public class Simple_interest
 {
     public static void main(String args[])
     {
-        Scanner input=new Scanner(System.in);
-        System.out.print("Is customer senior citizen(y/n): ");
-        char sen_cit=input.next().charAt(0);
-        int pri_amt,year;
-        double interest=0;
-        System.out.print("Enter the principal amount: ");
-        pri_amt=input.nextInt();
-        System.out.print("Enter the no of years: ");
-        year=input.nextInt();
-        if(sen_cit=='y'||sen_cit=='Y')
+        try
         {
+            Scanner input = new Scanner(System.in);
+            int pri_amt, year;
+            double interest = 0;
+            System.out.print("Enter the principal amount: ");
+            pri_amt = input.nextInt();
+            System.out.print("Enter the no of years: ");
+            year = input.nextInt();
+            if(year<0 || pri_amt<0)
+                throw new Exception();
+            System.out.print("Is customer senior citizen(y/n): ");
+            char sen_cit = input.next().charAt(0);
+            if (sen_cit == 'y' || sen_cit == 'Y') {
 
-            interest=(pri_amt*year*1.2)/100;
-            System.out.print(interest);
+                interest = (pri_amt * year * 1.2) / 100;
+                System.out.print(interest);
+            } else if (sen_cit == 'n' || sen_cit == 'N') {
+                interest = (pri_amt * year * 10) / 100;
+                System.out.print(interest);
+            }
+            else
+                System.out.print("Enter the valid input of senior citizen");
         }
-        else if(sen_cit=='n'||sen_cit=='N')
+        catch(Exception e)
         {
-            interest=(pri_amt*year*10)/100;
-            System.out.print(interest);
+            System.out.print("check the principal amt and years");
         }
     }
 }
