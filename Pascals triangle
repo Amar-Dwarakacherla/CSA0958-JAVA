@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class Pascals_triangle
+{
+    public static void main(String[] args) 
+    {
+        Scanner input = new Scanner(System.in);
+        int rows,digit = 1;
+        System.out.println("Enter the height of the triangle: ");
+        rows = input.nextInt();
+        for (int i = 0; i < rows; i++) 
+        {
+            for (int j = 1; j < 2 * (rows - i); j++) 
+            {
+                System.out.print(" ");
+            }
+            for (int j = 0; j <= i; j++) 
+            {
+                if (j == 0 || i == j)
+                    digit = 1;
+                else
+                    digit = digit * (i - j + 1) / j;
+                System.out.print("   "+ digit);
+            }
+            System.out.println();
+        }
+    }
+}
