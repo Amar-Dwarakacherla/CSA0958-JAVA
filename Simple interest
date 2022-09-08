@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class Simple_interest
+{
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Is customer senior citizen(y/n): ");
+        char sen_cit=input.next().charAt(0);
+        int pri_amt,year;
+        double interest=0;
+        System.out.print("Enter the principal amount: ");
+        pri_amt=input.nextInt();
+        System.out.print("Enter the no of years: ");
+        year=input.nextInt();
+        if(sen_cit=='y'||sen_cit=='Y')
+        {
+
+            interest=(pri_amt*year*1.2)/100;
+            System.out.print(interest);
+        }
+        else if(sen_cit=='n'||sen_cit=='N')
+        {
+            interest=(pri_amt*year*10)/100;
+            System.out.print(interest);
+        }
+    }
+}
