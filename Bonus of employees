@@ -1,0 +1,56 @@
+import java.util.Scanner;
+public class Bonus
+{
+    public static void main(String[] Args)
+    {
+        try {
+            Scanner input = new Scanner(System.in);
+            System.out.print("Enter Employee Grade: ");
+            char grade = input.next().charAt(0);
+            System.out.print("Enter employee Salary: ");
+            int salary = input.nextInt();
+            float bonus = 0.0f;
+            if (salary > 0) {
+                try
+                {
+                    if (grade == 'A' || grade == 'B')
+                    {
+                        if (grade == 'A' && salary >= 10000)
+                        {
+                            bonus = 0.05f * salary;
+                        } else if (grade == 'A' && salary < 10000)
+                        {
+                            bonus = 0.07f * salary;
+                        } else if (grade == 'B' && salary >= 10000)
+                        {
+                            bonus = 0.1f * salary;
+                        } else if (grade == 'B' && salary < 10000)
+                        {
+                            bonus = 0.12f * salary;
+                        }
+                        float total = salary + bonus;
+                        System.out.print("Salary = " + salary);
+                        System.out.print("\nBonus = " + bonus);
+                        System.out.print("\nTotal to ve paid: " + total);
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.out.print("Enter a Valid Grade");
+                }
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.print("Enter a Valid Salary");
+        }
+    }
+}
