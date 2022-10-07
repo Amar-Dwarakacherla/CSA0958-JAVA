@@ -1,0 +1,36 @@
+import java.util.*;
+public class perfectsquare {
+    static void perfectSquares(int l, int r) {
+        if (l < 0 || r < 0) {
+            System.out.println("invalid input");
+        } else if (l == r || l > r) {
+            System.out.println("invalid input");
+        } else {
+            int temp=0;
+            for (int i = l; i <= r; i++) {
+                if (Math.sqrt(i) == (int) Math.sqrt(i)) {
+                    temp=temp+1;
+                    System.out.print(i + " ");
+                }
+            }
+            if(temp==0)
+            {
+                System.out.println("No perfect squares exist in this range");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Enter lower number: ");
+            int l = sc.nextInt();
+            System.out.println("Enter upper number: ");
+            int r = sc.nextInt();
+            perfectSquares(l, r);
+
+        } catch (ArithmeticException e) {
+            System.out.println("invalid due to negative values");
+        }
+    }
+}
